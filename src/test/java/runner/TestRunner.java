@@ -8,7 +8,7 @@ import io.cucumber.junit.Cucumber;
 @CucumberOptions(
         features = "src/test/java/features",
         glue = {"src/test/java/stepDeff","src/test/java/utility"},
-        plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json"} https://github.com/lohith2507/cucumber.githttps://github.com/lohith2507/cucumber.git
+        plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json"}
 )
 
 public class TestRunner {
