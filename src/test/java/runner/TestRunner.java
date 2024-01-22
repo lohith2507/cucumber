@@ -1,6 +1,7 @@
 package runner;
 
 import io.cucumber.junit.CucumberOptions;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
 
@@ -11,7 +12,7 @@ import io.cucumber.junit.Cucumber;
         plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json"}
 )
 
-public class TestRunner {
+public class TestRunner extends AbstractTestNGCucumberTests {
 
 }
 

@@ -14,10 +14,11 @@ public class StepDefinitions {
 
     @Given("landing on facebook login page")
     public void landing_on_facebook_login_page() throws InterruptedException {
-        driver.get("www.facebook.com");
-        Thread.sleep(200000);
+        driver.get("https://www.facebook.com/");
+        Thread.sleep(2000);
         driver.manage().window().maximize();
-        Thread.sleep(200000);
+        Thread.sleep(2000);
+        driver.close();
     }
 
     @When("i enter {string} and {string}")
