@@ -38,4 +38,14 @@ Actions actions = new Actions(driver);
     public void landingOnAmazonWebsite() throws InterruptedException {
        actions.landingOnAmazonWebsite();
     }
+
+    @Then("i search for product")
+    public void iSearchForProduct() throws InterruptedException {
+        actions.iSearchForProduct();
+    }
+
+    @Then("i search for product by category")
+    public void iSearchForProductByCategory() throws InterruptedException {
+        actions.iSearchForProductByCategory();
+    }
 }

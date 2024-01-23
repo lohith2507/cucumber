@@ -8,7 +8,16 @@ Feature: login to facebook
 #    Then i navigate to profile
 #    And validate profilename
 
- @amazon
+ @flipkart
   Scenario: Login to facebook with valid credentials
     Given landing on amazon website
+    Then i search for product
+
+  @flipkart1
+  Scenario: Login to facebook with valid credentials
+    Given landing on amazon website
+    Then i search for product by category
+
+
+
 

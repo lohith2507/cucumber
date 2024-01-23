@@ -9,7 +9,7 @@ import io.cucumber.junit.Cucumber;
 @CucumberOptions(
         features = "src/test/java/features",
         glue = {"utility","stepDeff"},
-        plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json"},tags = "@amazon"
+        plugin = {"pretty","html:target/cucumber-html-report","json:cucumber.json"},tags = "@flipkart1"
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
