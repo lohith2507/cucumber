@@ -7,14 +7,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class BrowserDriver {
     public  WebDriver driver;
 
-    public ChromeOptions options;
-
-    public BrowserDriver(){
-        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/test/resources/drivers/chromedriver.exe");
-        driver = new ChromeDriver();
-
-    }
     public WebDriver getDriver() {
+        if(driver == null) {
+           System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver.exe");
+            driver = new ChromeDriver();
+
+        }
         return driver;
     }
     public void close(){

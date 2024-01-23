@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import utility.BrowserDriver;
 
 public class StepDefinitions {
-    BrowserDriver browserDriver = new BrowserDriver();
+    public BrowserDriver browserDriver = new BrowserDriver();
     WebDriver driver = browserDriver.getDriver();
 // Perform your test steps
 Actions actions = new Actions(driver);
@@ -32,5 +32,10 @@ Actions actions = new Actions(driver);
     }
     @And("validate profilename")
     public void validateProfilename() {
+    }
+
+    @Given("landing on amazon website")
+    public void landingOnAmazonWebsite() throws InterruptedException {
+       actions.landingOnAmazonWebsite();
     }
 }

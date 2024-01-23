@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import stepDeff.StepDefinitions;
 import utility.BrowserDriver;
 
@@ -13,20 +14,23 @@ public class Actions {
         this.driver = driver;
 
     }
-    Locators locators = new Locators(driver);
-   public void landing_on_facebook_login_page() throws InterruptedException {
 
+   public void landing_on_facebook_login_page() throws InterruptedException {
        driver.get("https://www.facebook.com/");
-       Thread.sleep(200);
+       Thread.sleep(2000);
        driver.manage().window().maximize();
-       Thread.sleep(200);
-       locators.username.sendKeys("9948631194");
-       Thread.sleep(200);
-       locators.password.sendKeys("9948631194");
-       Thread.sleep(200);
-       locators.login.click();
-       Thread.sleep(200);
-       driver.quit();
+       Thread.sleep(2000);
+       driver.findElement(By.id("email")).sendKeys("9948631194");
+       Thread.sleep(2000);
+       driver.findElement(By.id("pass")).sendKeys("9948631194");
+       Thread.sleep(2000);
+       driver.findElement(By.xpath("//*[text()='Log In']")).click();
+       Thread.sleep(2000);
+      // driver.quit();
+   }
+   public void landingOnAmazonWebsite() throws InterruptedException {
+       driver.get("https://www.amazon.com/");
+       Thread.sleep(2000);
    }
 
 }
