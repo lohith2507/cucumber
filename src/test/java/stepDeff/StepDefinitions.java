@@ -48,4 +48,9 @@ Actions actions = new Actions(driver);
     public void iSearchForProductByCategory() throws InterruptedException {
         actions.iSearchForProductByCategory();
     }
+
+    @Given("landing on instagram page")
+    public void landingOnInstagramPage() throws InterruptedException {
+        actions.landingOnInstagramPage();
+    }
 }

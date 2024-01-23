@@ -25,9 +25,9 @@ public class Actions {
         Thread.sleep(2000);
         driver.manage().window().maximize();
         Thread.sleep(2000);
-        driver.findElement(By.id("email")).sendKeys("9948631194");
+        driver.findElement(By.id("email")).sendKeys("9618986372");
         Thread.sleep(2000);
-        driver.findElement(By.id("pass")).sendKeys("9948631194");
+        driver.findElement(By.id("pass")).sendKeys("9618986372");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[text()='Log In']")).click();
         Thread.sleep(2000);
@@ -82,16 +82,24 @@ public class Actions {
                     List<WebElement> types1 = driver.findElements(By.xpath("//a[@class='_1BJVlg _11MZbx']"));
                     for (WebElement type1 : types1) {
                         if (type1.getText().equalsIgnoreCase("Audio")) {
-
                             type1.click();
                             Thread.sleep(1000);
                             break;
                         }
                     }
                     break;
-
                 }
             }
         }
+    }
+
+    public void landingOnInstagramPage() throws InterruptedException {
+        driver.get("https://www.instagram.com/");
+        driver.manage().window().maximize();
+        Thread.sleep(2000);
+        driver.findElement(By.name("username")).sendKeys("mehandhi._.creations");
+        driver.findElement(By.name("password")).sendKeys("9618986372");
+        driver.findElement(By.xpath("//*[text()='Log in']")).click();
+        Thread.sleep(20000);
     }
 }

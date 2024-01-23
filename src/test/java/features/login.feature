@@ -18,6 +18,8 @@ Feature: login to facebook
     Given landing on amazon website
     Then i search for product by category
 
-
+  @flipkart2
+  Scenario: Login to facebook with valid credentials
+    Given landing on instagram page
 
 
