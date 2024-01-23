@@ -18,21 +18,7 @@ Actions actions = new Actions(driver);
     public void landing_on_facebook_login_page() throws InterruptedException {
         actions.landing_on_facebook_login_page();
     }
-    @When("i enter {string} and {string}")
-    public void iEnterAnd(String arg0, String arg1) {
 
-    }
-    @And("i click on login button")
-    public void iClickOnLoginButton() {
-
-    }
-    @Then("i navigate to profile")
-    public void iNavigateToProfile() {
-
-    }
-    @And("validate profilename")
-    public void validateProfilename() {
-    }
 
     @Given("landing on amazon website")
     public void landingOnAmazonWebsite() throws InterruptedException {
