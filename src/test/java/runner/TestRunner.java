@@ -6,7 +6,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
         features = "src/test/java/features",
         glue = {"utility","stepDeff"},
-
         tags = "@flipkart1"
 )
 
