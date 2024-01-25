@@ -107,7 +107,19 @@ public class Actions {
 
     public void navigateToExcelSheetAndReadValues() throws IOException {
         ExcelReader excelReader = new ExcelReader();
-        String cellvalue = excelReader.getCellValue("data","Value1");
+        String cellvalue = ExcelReader.getCellValue("data","Value1");
+        String cellvalue2 = excelReader.getCellValue("data","Value2");
+        String cellvalue3 = excelReader.getCellValue("data","Value3");
         System.out.println(cellvalue);
+        System.out.println(cellvalue2);
+        System.out.println(cellvalue3);
+    }
+
+    public void navigateToExcelSheetAndWriteValues() throws IOException {
+        ExcelReader excelReader = new ExcelReader();
+        ExcelReader.writetoexcel("data","Value1","Rajesh");
+        ExcelReader.writetoexcel("data","Value2","Lohith");
+        ExcelReader.writetoexcel("data","Value3","Sruthi");
+
     }
 }

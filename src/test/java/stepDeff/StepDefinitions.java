@@ -46,4 +46,9 @@ Actions actions = new Actions(driver);
     public void navigateToExcelSheetAndReadValues() throws IOException {
         actions.navigateToExcelSheetAndReadValues();
     }
+
+    @Given("navigate to excel sheet and write values")
+    public void navigateToExcelSheetAndWriteValues() throws IOException {
+        actions.navigateToExcelSheetAndWriteValues();
+    }
 }

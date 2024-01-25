@@ -21,7 +21,11 @@ Feature: login to facebook
 
 
   @flipkart3
-  Scenario: getting excel values
+  Scenario:getting excel values
     Given navigate to excel sheet and read values
+
+  @flipkart4
+  Scenario:writing excel values
+    Given navigate to excel sheet and write values
 
 
