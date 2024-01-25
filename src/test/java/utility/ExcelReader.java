@@ -83,6 +83,10 @@ static String scenname = hooks.getcurrentscenrioname();
                 }
             }
             System.out.println(cellindex);
+            if(sheet.getRow(rowindex).getCell(cellindex) == null)
+            {
+                sheet.getRow(rowindex).createCell(cellindex);
+            }
             sheet.getRow(rowindex).getCell(cellindex).setCellValue(value);
 
           try ( FileOutputStream fos = new FileOutputStream(filePath))
