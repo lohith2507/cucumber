@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utility.BrowserDriver;
 
+import java.io.IOException;
+
 public class StepDefinitions {
     public BrowserDriver browserDriver = new BrowserDriver();
     WebDriver driver = browserDriver.getDriver();
@@ -38,5 +40,10 @@ Actions actions = new Actions(driver);
     @Given("landing on instagram page")
     public void landingOnInstagramPage() throws InterruptedException {
         actions.landingOnInstagramPage();
+    }
+
+    @Given("navigate to excel sheet and read values")
+    public void navigateToExcelSheetAndReadValues() throws IOException {
+        actions.navigateToExcelSheetAndReadValues();
     }
 }

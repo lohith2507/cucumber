@@ -20,3 +20,8 @@ Feature: login to facebook
     Given landing on instagram page
 
 
+  @flipkart3
+  Scenario: getting excel values
+    Given navigate to excel sheet and read values
+
+

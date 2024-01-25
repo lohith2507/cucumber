@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import stepDeff.StepDefinitions;
 import utility.BrowserDriver;
+import utility.ExcelReader;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -101,5 +103,11 @@ public class Actions {
         driver.findElement(By.name("password")).sendKeys("9618986372");
         driver.findElement(By.xpath("//*[text()='Log in']")).click();
         Thread.sleep(20000);
+    }
+
+    public void navigateToExcelSheetAndReadValues() throws IOException {
+        ExcelReader excelReader = new ExcelReader();
+        String cellvalue = excelReader.getCellValue("data","Value1");
+        System.out.println(cellvalue);
     }
 }
