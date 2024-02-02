@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import stepDeff.StepDefinitions;
 import utility.BrowserDriver;
 import utility.ExcelReader;
+import utility.Wrappers;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -17,17 +18,17 @@ import java.util.Set;
 public class Actions {
     public WebDriver driver;
 
-    public Actions(WebDriver driver) {
+    public Actions(WebDriver driver) throws IOException {
         this.driver = driver;
 
     }
-
+Wrappers wrappers = new Wrappers();
     public void landing_on_facebook_login_page() throws InterruptedException {
         driver.get("https://www.facebook.com/");
         Thread.sleep(2000);
         driver.manage().window().maximize();
         Thread.sleep(2000);
-        driver.findElement(By.id("email")).sendKeys("9618986372");
+         //locators.userbame.sendKeys("9618986372");
         Thread.sleep(2000);
         driver.findElement(By.id("pass")).sendKeys("9618986372");
         Thread.sleep(2000);
@@ -50,8 +51,10 @@ public class Actions {
         List<WebElement> models = driver.findElements(By.xpath("//div[@class='_4rR01T']"));
         for (WebElement model : models) {
             if (model.getText().equalsIgnoreCase("Apple iPhone 12 (Blue, 64 GB)")) {
+                Wrappers.takescreenshot(driver);
                 model.click();
                 Thread.sleep(2000);
+                Wrappers.takescreenshot(driver);
             }
         }
 
@@ -106,20 +109,18 @@ public class Actions {
     }
 
     public void navigateToExcelSheetAndReadValues() throws IOException {
-        ExcelReader excelReader = new ExcelReader();
-        String cellvalue = ExcelReader.getCellValue("data","Value1");
-        String cellvalue2 = excelReader.getCellValue("data","Value2");
-        String cellvalue3 = excelReader.getCellValue("data","Value3");
+
+        String cellvalue = Wrappers.getdatafrom_excel("data","Value1");
+        String cellvalue2 = Wrappers.getdatafrom_excel("data","Value2");
+       String cellvalue3  = Wrappers.getdatafrom_excel("data","Value3");
         System.out.println(cellvalue);
         System.out.println(cellvalue2);
-        System.out.println(cellvalue3);
+       System.out.println(cellvalue3);
     }
 
     public void navigateToExcelSheetAndWriteValues() throws IOException {
-        ExcelReader excelReader = new ExcelReader();
-        ExcelReader.writetoexcel("data","Value1","Rajesh");
-        ExcelReader.writetoexcel("data","Value2","Lohith");
-        ExcelReader.writetoexcel("data","Value3","Sruthi");
-
+        Wrappers.writedatato_excel("data","Value1","Lohith");
+        Wrappers.writedatato_excel("data","Value2","Rajesh");
+        Wrappers.writedatato_excel("data","Value3","Sruthi");
     }
 }

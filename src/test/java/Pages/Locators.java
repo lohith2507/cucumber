@@ -12,5 +12,6 @@ public class Locators {
         this.driver = driver;
 
     }
+    WebElement userbame = driver.findElement(By.id("email"));
 
 }

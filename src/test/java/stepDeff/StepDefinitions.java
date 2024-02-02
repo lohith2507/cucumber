@@ -16,6 +16,10 @@ public class StepDefinitions {
     WebDriver driver = browserDriver.getDriver();
 // Perform your test steps
 Actions actions = new Actions(driver);
+
+    public StepDefinitions() throws IOException {
+    }
+
     @Given("landing on facebook login page")
     public void landing_on_facebook_login_page() throws InterruptedException {
         actions.landing_on_facebook_login_page();
