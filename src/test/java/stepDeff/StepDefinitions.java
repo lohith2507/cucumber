@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utility.BrowserDriver;
@@ -32,7 +33,7 @@ Actions actions = new Actions(driver);
     }
 
     @Then("i search for product")
-    public void iSearchForProduct() throws InterruptedException {
+    public void iSearchForProduct() throws InterruptedException, IOException, InvalidFormatException {
         actions.iSearchForProduct();
     }
 

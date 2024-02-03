@@ -1,6 +1,7 @@
 package Pages;
 
 import org.apache.cassandra.streaming.StreamOut;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import stepDeff.StepDefinitions;
 import utility.BrowserDriver;
 import utility.ExcelReader;
+import utility.ScreenshotUtility;
 import utility.Wrappers;
 
 import java.io.IOException;
@@ -43,7 +45,7 @@ Wrappers wrappers = new Wrappers();
         Thread.sleep(2000);
     }
 
-    public void iSearchForProduct() throws InterruptedException {
+    public void iSearchForProduct() throws InterruptedException, IOException, InvalidFormatException {
         WebElement search = driver.findElement(By.className("Pke_EE"));
         search.sendKeys("i phone");
         search.sendKeys(Keys.ENTER);
@@ -51,10 +53,10 @@ Wrappers wrappers = new Wrappers();
         List<WebElement> models = driver.findElements(By.xpath("//div[@class='_4rR01T']"));
         for (WebElement model : models) {
             if (model.getText().equalsIgnoreCase("Apple iPhone 12 (Blue, 64 GB)")) {
-                Wrappers.takescreenshot(driver);
+                Wrappers.takescreenshot(driver,"screenshot1");
                 model.click();
                 Thread.sleep(2000);
-                Wrappers.takescreenshot(driver);
+                Wrappers.takescreenshot(driver,"screenshot2");
             }
         }
 
@@ -64,6 +66,7 @@ Wrappers wrappers = new Wrappers();
         driver.switchTo().window(iterator.next());
         driver.findElement(By.xpath("//button[@class='_2KpZ6l _2U9uOA ihZ75k _3AWRsL']")).click();
         Thread.sleep(2000);
+        ScreenshotUtility.generateReport();
     }
 
     public void iSearchForProductByCategory() throws InterruptedException {

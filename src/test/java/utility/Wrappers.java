@@ -16,9 +16,9 @@ public class Wrappers {
         ExcelReader.writetoexcel(sheet,colheader,value);
     }
 
-public static void takescreenshot(WebDriver driver)
+public static void takescreenshot(WebDriver driver,String imagename)
 {
-    screenshotutility.takeScreenshot(driver);
+    screenshotutility.takeScreenshot(driver,imagename);
 }
     public Wrappers() throws IOException {
 
