@@ -1,13 +1,18 @@
 package Pages;
 
 import org.apache.cassandra.streaming.StreamOut;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import stepDeff.StepDefinitions;
 import utility.BrowserDriver;
+import utility.ExcelReader;
+import utility.ScreenshotUtility;
+import utility.Wrappers;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -15,17 +20,17 @@ import java.util.Set;
 public class Actions {
     public WebDriver driver;
 
-    public Actions(WebDriver driver) {
+    public Actions(WebDriver driver) throws IOException {
         this.driver = driver;
 
     }
-
+Wrappers wrappers = new Wrappers();
     public void landing_on_facebook_login_page() throws InterruptedException {
         driver.get("https://www.facebook.com/");
         Thread.sleep(2000);
         driver.manage().window().maximize();
         Thread.sleep(2000);
-        driver.findElement(By.id("email")).sendKeys("9618986372");
+         //locators.userbame.sendKeys("9618986372");
         Thread.sleep(2000);
         driver.findElement(By.id("pass")).sendKeys("9618986372");
         Thread.sleep(2000);
@@ -40,7 +45,7 @@ public class Actions {
         Thread.sleep(2000);
     }
 
-    public void iSearchForProduct() throws InterruptedException {
+    public void iSearchForProduct() throws InterruptedException, IOException, InvalidFormatException {
         WebElement search = driver.findElement(By.className("Pke_EE"));
         search.sendKeys("i phone");
         search.sendKeys(Keys.ENTER);
@@ -48,8 +53,10 @@ public class Actions {
         List<WebElement> models = driver.findElements(By.xpath("//div[@class='_4rR01T']"));
         for (WebElement model : models) {
             if (model.getText().equalsIgnoreCase("Apple iPhone 12 (Blue, 64 GB)")) {
+                Wrappers.takescreenshot(driver,"screenshot1");
                 model.click();
                 Thread.sleep(2000);
+                Wrappers.takescreenshot(driver,"screenshot2");
             }
         }
 
@@ -59,6 +66,7 @@ public class Actions {
         driver.switchTo().window(iterator.next());
         driver.findElement(By.xpath("//button[@class='_2KpZ6l _2U9uOA ihZ75k _3AWRsL']")).click();
         Thread.sleep(2000);
+        ScreenshotUtility.generateReport();
     }
 
     public void iSearchForProductByCategory() throws InterruptedException {
@@ -101,5 +109,21 @@ public class Actions {
         driver.findElement(By.name("password")).sendKeys("9618986372");
         driver.findElement(By.xpath("//*[text()='Log in']")).click();
         Thread.sleep(20000);
+    }
+
+    public void navigateToExcelSheetAndReadValues() throws IOException {
+
+        String cellvalue = Wrappers.getdatafrom_excel("data","Value1");
+        String cellvalue2 = Wrappers.getdatafrom_excel("data","Value2");
+       String cellvalue3  = Wrappers.getdatafrom_excel("data","Value3");
+        System.out.println(cellvalue);
+        System.out.println(cellvalue2);
+       System.out.println(cellvalue3);
+    }
+
+    public void navigateToExcelSheetAndWriteValues() throws IOException {
+        Wrappers.writedatato_excel("data","Value1","Lohith");
+        Wrappers.writedatato_excel("data","Value2","Rajesh");
+        Wrappers.writedatato_excel("data","Value3","Sruthi");
     }
 }
